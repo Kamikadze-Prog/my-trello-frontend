@@ -26,8 +26,9 @@ $bgColor: #fff;
 }
 
 button {
+  margin: 5px;
   border: none;
-  width: 250px;
+  width: auto;
   height: 45px;
   border-radius: 3px;
   font-family: sans-serif, 'Courier New';
@@ -35,9 +36,16 @@ button {
   background-color: #d4d8dd;
   cursor: pointer;
 }
+.new-column {
+  margin: 0;
+}
 
 button:hover {
-  background-color: #e9e5e5;
+  background-color: #dadce3;
+}
+
+.new-column:hover {;
+  background-color: #c1c9cb;
 }
 
 button:active, button:focus {

@@ -11,6 +11,7 @@ export default function List(lists): JSX.Element {
     <div className="toDo-container">
       <h2>{title}</h2>
       <div className="inner_toDo-container">{todo}</div>
+      <button>+ Добавить ещё одну карточку</button>
     </div>
   );
 }

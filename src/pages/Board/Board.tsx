@@ -53,7 +53,7 @@ export default class Board extends React.Component {
         <h2 className="board-name">{title}</h2>
         <div className="inner_board-container">
           {list}
-          <button>+ Добавить карточку</button>
+          <button className="new-column">+ Добавить ещё одну колонку</button>
         </div>
       </div>
     );
