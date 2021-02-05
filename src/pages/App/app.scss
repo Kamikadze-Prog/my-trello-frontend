@@ -1,5 +1,5 @@
 $textColor: #fff;
-$NavBgColor: hsla(0, 0%, 100%, .3);
+$NavBgColor: hsla(0, 15%, 90%, 0.3);
 
 .nav-container {
   width: 100%;
@@ -40,3 +40,6 @@ li a {
 li a:visited {
   color: $textColor;
 }
+
+  li:hover {
+    background-color: #909394}
