@@ -1,0 +1,46 @@
+$bgColor: #fff;
+
+.inner_toDo-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.inner_toDo-container {
+  span {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    margin: 5px;
+    background-color: $bgColor;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 1px silver;
+    cursor: pointer;
+    height: 32px;
+    padding-left: 5px;
+    font-size: 15px;
+  }
+}
+
+.inner_toDo-container span:hover {;
+  background-color: #dadce3;;
+}
+
+button {
+  border: none;
+  width: 250px;
+  height: 45px;
+  border-radius: 3px;
+  font-family: sans-serif, 'Courier New';
+  font-size: 15px;
+  background-color: #d4d8dd;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #e9e5e5;
+}
+
+button:active, button:focus {
+  outline: none;
+  border: none;
+}

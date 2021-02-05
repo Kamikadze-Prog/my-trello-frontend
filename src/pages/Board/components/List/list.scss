@@ -1,0 +1,28 @@
+.toDo-container {
+  margin: 0 5px;
+  padding: 0 2px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-width: 250px;
+  min-height: 150px;
+  position: relative;
+  white-space: normal;
+}
+
+
+.toDo-container {
+  h2 {
+    display: flex;
+    text-align: center;
+    padding-left: 5px;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 5px 0;
+    height: 30px;
+    align-items: center;
+    font-weight: 500;
+  }
+}

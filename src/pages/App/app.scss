@@ -1,0 +1,42 @@
+$textColor: #fff;
+$NavBgColor: hsla(0, 0%, 100%, .3);
+
+.nav-container {
+  width: 100%;
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 3px 0;
+}
+
+.nav-container {
+  ul {
+    display: flex;;
+    list-style: none;
+    padding: 2px;
+    margin: 0;
+  }
+}
+
+.nav-container {
+  li {
+    width: auto;
+    height: 28px;
+    padding: 0 5px;
+    margin: 0 2px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    background-color: $NavBgColor;
+    color: $textColor;
+    font-weight: 500;
+  }
+}
+
+li a {
+  text-decoration: none;
+
+}
+
+li a:visited {
+  color: $textColor;
+}

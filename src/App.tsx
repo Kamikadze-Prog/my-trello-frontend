@@ -1,12 +1,13 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Board from './Board/Board';
+import './pages/App/app.scss';
+
+import Board from './pages/Board/Board';
 // eslint-disable-next-line import/order
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-// eslint-disable-next-line
-function Home() :JSX.Element{
+function Home(): JSX.Element {
   return (
     <div className="App">
       <header className="App-header">
@@ -24,14 +25,16 @@ function App(): JSX.Element {
   return (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/board">Board</Link>
-          </li>
-        </ul>
+        <div className="nav-container">
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/board">Board</Link>
+            </li>
+          </ul>
+        </div>
         <Switch>
           <Route exact path="/">
             <Home />
