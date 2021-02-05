@@ -1,12 +1,16 @@
 import React from 'react';
-import ICard from '../../../../common/interfaces/ICard';
 import Card from '../Card/Card';
+import ICard from '../../../../common/interfaces/ICard';
+import IList from '../../../../common/interfaces/IList';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export default function List(lists): JSX.Element {
-  const { cards, title } = lists;
+export interface ILi {
+  title: string;
+}
+
+export default function List(list: IList): JSX.Element {
+  const { cards, title } = list;
   const todo = cards.map((cardTitle: ICard) => <Card> title={cardTitle.title}</Card>);
+
   return (
     <div className="toDo-container">
       <h2>{title}</h2>

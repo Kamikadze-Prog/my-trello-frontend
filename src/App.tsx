@@ -24,7 +24,7 @@ function Home(): JSX.Element {
 function App(): JSX.Element {
   return (
     <Router>
-      <div>
+      <div className="container">
         <div className="nav-container">
           <ul>
             <li>

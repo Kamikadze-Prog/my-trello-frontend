@@ -1,13 +1,17 @@
 import React from 'react';
 import List from './components/List/List';
+import IList from '../../common/interfaces/IList';
 import './components/Board/board.scss';
 import './components/Card/card.scss';
 import './components/List/list.scss';
 
+interface IBoard {
+  title: string;
+  lists: IList;
+}
+
 export default class Board extends React.Component {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  constructor(props) {
+  constructor(props: IBoard) {
     super(props);
     this.state = {
       title: 'Моя тестовая доска',
@@ -39,15 +43,8 @@ export default class Board extends React.Component {
   }
 
   render(): JSX.Element {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const { title } = this.state;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const { lists } = this.state;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const list = lists.map((el) => <List title={el.title} cards={el.cards} />);
+    const { title, lists }: IList = this.state;
+    const list = lists.map((el: IList) => <List title={el.title} cards={el.cards} />);
     return (
       <div className="board-container">
         <h2 className="board-name">{title}</h2>

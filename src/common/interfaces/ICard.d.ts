@@ -1,4 +1,8 @@
 export interface ICard {
-  [card: string]: { value: number | string };
+  [cards: string]: {
+    id: number;
+    title: string;
+  };
 }
+
 export default ICard;
