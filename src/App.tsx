@@ -1,11 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import logo from './logo.svg';
 import './App.css';
 import './pages/App/app.scss';
-
 import Board from './pages/Board/Board';
-// eslint-disable-next-line import/order
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 function Home(): JSX.Element {
   return (
