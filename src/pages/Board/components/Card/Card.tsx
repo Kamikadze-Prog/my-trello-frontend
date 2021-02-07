@@ -1,6 +1,5 @@
 import React from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export default function Card(title): JSX.Element {
-  return <span>{title.children[1]}</span>;
+
+export default function Card(card: { title: { id: number; title: string } }): JSX.Element {
+  return <span>{card.title}</span>;
 }

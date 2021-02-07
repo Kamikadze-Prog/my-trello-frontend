@@ -44,7 +44,9 @@ export default class Board extends React.Component {
 
   render(): JSX.Element {
     const { title, lists }: IList = this.state;
-    const list = lists.map((el: IList) => <List title={el.title} cards={el.cards} />);
+    const list = lists.map((listItem: IList) => (
+      <List key={listItem.id} title={listItem.title} cards={listItem.cards} />
+    ));
     return (
       <div className="board-container">
         <h2 className="board-name">{title}</h2>
