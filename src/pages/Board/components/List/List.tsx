@@ -5,8 +5,7 @@ import ICard from '../../../../common/interfaces/ICard';
 
 export default function List(list: IList): JSX.Element {
   const { cards, title, id } = list;
-
-  const todo = cards.map((card: ICard) => <Card key={card.id.toString()} title={card.title} />);
+  const todo = cards.map((card: ICard) => <Card key={card.id.toString()} card={card} />);
 
   return (
     <div className="toDo-container">

@@ -1,5 +1,7 @@
 import React from 'react';
+import ICard from '../../../../common/interfaces/ICard';
 
-export default function Card(card: { title: { id: number; title: string } }): JSX.Element {
-  return <span>{card.title}</span>;
+export default function Card(card: { key: string; card: ICard }): JSX.Element {
+  const { title } = card.card;
+  return <span>{title}</span>;
 }

@@ -1,23 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import logo from './logo.svg';
 import './App.css';
 import './pages/App/app.scss';
 import Board from './pages/Board/Board';
-
-function Home(): JSX.Element {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello React</p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Home from './pages/Home/Home';
 
 function App(): JSX.Element {
   return (
@@ -29,7 +15,7 @@ function App(): JSX.Element {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/board">Board</Link>
+              <Link to="/board/board_id">Board</Link>
             </li>
           </ul>
         </div>
@@ -37,7 +23,7 @@ function App(): JSX.Element {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/board">
+          <Route path="/board/:board_id">
             <Board />
           </Route>
         </Switch>
