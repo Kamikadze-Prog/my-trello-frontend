@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from './components/Board/Board';
+import BoardHome from './components/Board/BoardHome';
 import IBoardItem from '../../common/interfaces/IBoardItem';
 import './components/Board/board.scss';
 
@@ -27,7 +27,7 @@ export default class Home extends React.Component {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const board = boards.map((elements: IBoardItem) => (
-      <Board key={elements.id.toString()} title={elements.title} id={elements.id} />
+      <BoardHome key={elements.id.toString()} title={elements.title} id={elements.id} />
     ));
     return (
       <header className="App-header">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import List from './components/List/List';
 import IList from '../../common/interfaces/IList';
 import './components/Board/board.scss';
@@ -10,7 +11,7 @@ interface IBoard {
   lists: IList;
 }
 
-export default class Board extends React.Component {
+class Board extends React.Component {
   constructor(props: IBoard) {
     super(props);
     this.state = {
@@ -47,9 +48,17 @@ export default class Board extends React.Component {
     const list = lists.map((listItem: IList) => (
       <List key={listItem.id} title={listItem.title} cards={listItem.cards} />
     ));
+
+    // eslint-disable-next-line react/destructuring-assignment,@typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line react/destructuring-assignment
+    const { id } = this.props.match.params;
     return (
       <div className="board-container">
-        <h2 className="board-name">{title}</h2>
+        <h2 className="board-name">
+          {id}
+          {title}
+        </h2>
         <div className="inner_board-container">
           {list}
           <button className="new-column">+ Добавить ещё одну колонку</button>
@@ -58,3 +67,6 @@ export default class Board extends React.Component {
     );
   }
 }
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+export default withRouter(Board);
