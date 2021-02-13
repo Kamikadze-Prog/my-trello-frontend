@@ -1,5 +1,4 @@
 import React from 'react';
-import { withRouter } from 'react-router-dom';
 import List from './components/List/List';
 import IList from '../../common/interfaces/IList';
 import './components/Board/board.scss';
@@ -11,7 +10,7 @@ interface IBoard {
   lists: IList;
 }
 
-class Board extends React.Component {
+export default class Board extends React.Component {
   constructor(props: IBoard) {
     super(props);
     this.state = {
@@ -52,7 +51,7 @@ class Board extends React.Component {
     // eslint-disable-next-line react/destructuring-assignment,@typescript-eslint/ban-ts-comment
     // @ts-ignore
     // eslint-disable-next-line react/destructuring-assignment
-    const { id } = this.props.match.params;
+    const { id } = this.props;
     return (
       <div className="board-container">
         <h2 className="board-name">
@@ -67,6 +66,3 @@ class Board extends React.Component {
     );
   }
 }
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-export default withRouter(Board);

@@ -17,11 +17,9 @@ function App(): JSX.Element {
           </ul>
         </div>
         <Switch>
+          <Route path="/board/:id" render={(props) => <Board {...props.match.params} />} />
           <Route exact path="/">
             <Home />
-          </Route>
-          <Route path="/board">
-            <Board />
           </Route>
         </Switch>
       </div>
