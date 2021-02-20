@@ -1,14 +1,21 @@
 import React from 'react';
+// import { connect } from 'react-redux';
+// import { getBoards } from '../../store/modules/boards/actions';
 import Board from './components/Board/Board';
 import IBoardItem from '../../common/interfaces/IBoardItem';
 import './components/Board/board.scss';
 
-interface IBoard {
+type PropsType = {
   [boards: string]: IBoardItem;
-}
+  // getBoards: () => Promise<void>;
+};
 
+// type StateType = {
+//   id: string;
+// };
+// class Home extends React.Component<StateType, PropsType> {
 export default class Home extends React.Component {
-  constructor(props: IBoard) {
+  constructor(props: PropsType) {
     super(props);
     this.state = {
       boards: [
@@ -23,7 +30,7 @@ export default class Home extends React.Component {
   }
 
   render(): JSX.Element {
-    const { boards }: IBoard = this.state;
+    const { boards }: PropsType = this.state;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const board = boards.map((elements: IBoardItem) => (
@@ -48,3 +55,10 @@ export default class Home extends React.Component {
     );
   }
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+// const mapStateToProps = (state) => ({
+//   ...state.boards,
+// });
+// export default connect(mapStateToProps, {})(Home);

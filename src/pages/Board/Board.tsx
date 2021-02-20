@@ -45,17 +45,15 @@ export default class Board extends React.Component {
   render(): JSX.Element {
     const { title, lists }: IList = this.state;
     const list = lists.map((listItem: IList) => (
-      <List key={listItem.id} title={listItem.title} cards={listItem.cards} />
+      <List key={listItem.id.toString()} title={listItem.title} cards={listItem.cards} />
     ));
-
-    // eslint-disable-next-line react/destructuring-assignment,@typescript-eslint/ban-ts-comment
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    // eslint-disable-next-line react/destructuring-assignment
     const { id } = this.props;
     return (
       <div className="board-container">
         <h2 className="board-name">
-          {id}
+          {`${id}-`}
           {title}
         </h2>
         <div className="inner_board-container">
