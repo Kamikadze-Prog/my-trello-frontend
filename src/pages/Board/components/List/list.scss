@@ -1,4 +1,4 @@
-.toDo-container {
+.todo-container {
   margin: 0 5px;
   padding: 0 2px;
   background-color: #ebecf0;
@@ -13,7 +13,7 @@
 }
 
 
-.toDo-container {
+.todo-container {
   h2 {
     display: flex;
     text-align: center;
@@ -24,5 +24,26 @@
     height: 30px;
     align-items: center;
     font-weight: 500;
+  }
+}
+
+.btn{
+  margin: 5px;
+  border: none;
+  min-width: 230px;
+  height: 45px;
+  border-radius: 3px;
+  font-family: sans-serif, 'Courier New';
+  font-size: 15px;
+  background-color: #d4d8dd;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #dadce3;
+  }
+
+  &:active, &:focus {
+    outline: none;
+    border: none;
   }
 }

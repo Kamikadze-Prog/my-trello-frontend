@@ -1,7 +1,13 @@
 import React from 'react';
 import ICard from '../../../../common/interfaces/ICard';
+import './card.scss';
 
-export default function Card(card: { key: string; card: ICard }): JSX.Element {
+interface CardProps {
+  key: string;
+  card: ICard;
+}
+
+export default function Card(card: CardProps): JSX.Element {
   const { title } = card.card;
-  return <span>{title}</span>;
+  return <span className="card-element">{title}</span>;
 }

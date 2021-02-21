@@ -9,8 +9,7 @@ function generateRandomColor(): string {
   return `rgb(${red}, ${green}, ${blue})`;
 }
 
-export default function Board(props: IBoardItem): JSX.Element {
-  const { title, id } = props;
+export default function Board({ title, id }: IBoardItem): JSX.Element {
   return (
     <Link to={`/board/:${id}`}>
       <li style={{ backgroundColor: generateRandomColor() }}>

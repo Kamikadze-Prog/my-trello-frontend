@@ -1,14 +1,8 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import List from './components/List/List';
 import IList from '../../common/interfaces/IList';
 import './components/Board/board.scss';
-import './components/Card/card.scss';
-import './components/List/list.scss';
-
-interface IBoard {
-  title: string;
-  lists: IList;
-}
+import { IBoard } from '../../common/interfaces/IBoard';
 
 export default class Board extends React.Component {
   constructor(props: IBoard) {
@@ -42,11 +36,15 @@ export default class Board extends React.Component {
     };
   }
 
-  render(): JSX.Element {
-    const { title, lists }: IList = this.state;
-    const list = lists.map((listItem: IList) => (
+  makeList(): ReactElement {
+    const { lists }: IList = this.state;
+    return lists.map((listItem: IList) => (
       <List key={listItem.id.toString()} title={listItem.title} cards={listItem.cards} />
     ));
+  }
+
+  render(): JSX.Element {
+    const { title }: IList = this.state;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const { id } = this.props;
@@ -57,8 +55,8 @@ export default class Board extends React.Component {
           {title}
         </h2>
         <div className="inner_board-container">
-          {list}
-          <button className="new-column">+ Добавить ещё одну колонку</button>
+          {this.makeList()}
+          <button className="new-column btn">+ Добавить ещё одну колонку</button>
         </div>
       </div>
     );

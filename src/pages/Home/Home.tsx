@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 // import { connect } from 'react-redux';
 // import { getBoards } from '../../store/modules/boards/actions';
 import Board from './components/Board/Board';
@@ -29,20 +29,23 @@ export default class Home extends React.Component {
     };
   }
 
-  render(): JSX.Element {
+  makeList(): ReactElement {
     const { boards }: PropsType = this.state;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    const board = boards.map((elements: IBoardItem) => (
+    return boards.map((elements: IBoardItem) => (
       <Board key={elements.id.toString()} title={elements.title} id={elements.id} />
     ));
+  }
+
+  render(): JSX.Element {
     return (
       <header className="App-header">
         <div className="home-container">
           <h1 className="main-text">Мои доски</h1>
           <div className="home_board-container">
             <ul>
-              {board}
+              {this.makeList()}
               <li>
                 <div>
                   <p>+ Создать доску</p>

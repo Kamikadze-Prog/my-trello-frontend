@@ -1,12 +1,9 @@
 $bgColor: #fff;
 
-.inner_toDo-container {
+.inner_todo-container {
   display: flex;
   flex-direction: column;
-}
-
-.inner_toDo-container {
-  span {
+  .card-element {
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -18,37 +15,17 @@ $bgColor: #fff;
     height: 32px;
     padding-left: 5px;
     font-size: 15px;
+
+    &:hover {;
+      background-color: #dadce3;;
+    }
   }
 }
 
-.inner_toDo-container span:hover {;
-  background-color: #dadce3;;
-}
-
-button {
-  margin: 5px;
-  border: none;
-  min-width: 230px;
-  height: 45px;
-  border-radius: 3px;
-  font-family: sans-serif, 'Courier New';
-  font-size: 15px;
-  background-color: #d4d8dd;
-  cursor: pointer;
-}
 .new-column {
   margin: 0;
-}
 
-button:hover {
-  background-color: #dadce3;
-}
-
-.new-column:hover {;
-  background-color: #c1c9cb;
-}
-
-button:active, button:focus {
-  outline: none;
-  border: none;
+  &:hover {;
+    background-color: #c1c9cb;
+  }
 }
