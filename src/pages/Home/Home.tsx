@@ -4,6 +4,7 @@ import React, { ReactElement } from 'react';
 import Board from './components/Board/Board';
 import IBoardItem from '../../common/interfaces/IBoardItem';
 import './components/Board/board.scss';
+import OpenDialog from './components/OpenDialog';
 
 type PropsType = {
   [boards: string]: IBoardItem;
@@ -14,10 +15,13 @@ type PropsType = {
 //   id: string;
 // };
 // class Home extends React.Component<StateType, PropsType> {
+
 export default class Home extends React.Component {
   constructor(props: PropsType) {
     super(props);
     this.state = {
+      showModal: false,
+      value: '',
       boards: [
         { id: 1, title: 'покупки' },
         { id: 2, title: 'подготовка к свадьбе' },
@@ -27,6 +31,62 @@ export default class Home extends React.Component {
         { id: 6, title: 'изучить что-то новое' },
       ],
     };
+    this.handleShow = this.handleShow.bind(this);
+    this.handleHide = this.handleHide.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.onKeyPressHandler = this.onKeyPressHandler.bind(this);
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  onKeyPressHandler(event) {
+    if (event.keyCode === 13) {
+      this.handleSubmit(event);
+    }
+  }
+
+  updateBodyStyles() {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { showModal } = this.state;
+    return showModal ? (document.body.style.overflow = 'visible') : (document.body.style.overflow = 'hidden');
+  }
+
+  handleShow() {
+    this.updateBodyStyles();
+    this.setState({ showModal: true });
+  }
+
+  handleHide() {
+    this.updateBodyStyles();
+    this.setState({ showModal: false });
+  }
+
+  handleChange(event: { target: { value: string } }) {
+    this.setState({ value: event.target.value });
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  handleSubmit(event) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { value } = this.state;
+    const input = document.getElementById('input-text');
+    // eslint-disable-next-line no-empty
+    if (value.toString().length === 0) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      input.style.border = '1px solid red';
+    } else {
+      // eslint-disable-next-line no-alert
+      alert(`Мы создали доску: ${value}`);
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      input.style.border = '1px solid green';
+      event.preventDefault();
+    }
   }
 
   makeList(): ReactElement {
@@ -39,6 +99,30 @@ export default class Home extends React.Component {
   }
 
   render(): JSX.Element {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    const { value } = this.state;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    // eslint-disable-next-line react/destructuring-assignment
+    const modal = this.state.showModal ? (
+      <OpenDialog>
+        <div className="dialog-block_form" onSubmit={this.handleSubmit}>
+          <div className="dialog-block_input">
+            <input
+              id="input-text"
+              type="text"
+              placeholder="Добавить заголовок доски"
+              value={value}
+              onChange={this.handleChange}
+              onKeyDown={this.onKeyPressHandler}
+            />
+            <button onClick={this.handleHide}>x</button>
+          </div>
+          <input type="submit" value="Создать" onClick={this.handleSubmit} />
+        </div>
+      </OpenDialog>
+    ) : null;
     return (
       <header className="App-header">
         <div className="home-container">
@@ -46,11 +130,10 @@ export default class Home extends React.Component {
           <div className="home_board-container">
             <ul>
               {this.makeList()}
-              <li>
-                <div>
-                  <p>+ Создать доску</p>
-                </div>
-              </li>
+              <button className="make-board" onClick={this.handleShow}>
+                <p>+ Создать доску</p>
+              </button>
+              {modal}
             </ul>
           </div>
         </div>

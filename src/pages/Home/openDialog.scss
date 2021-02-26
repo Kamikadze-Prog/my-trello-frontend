@@ -1,0 +1,42 @@
+#modal-root {
+  position: relative;
+  z-index: 999;
+  background-color: #a8bce2;
+}
+
+.dialog-block {
+  background-color: rgba(0,0,0,0.5);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+.dialog-block_input {
+  display: flex;
+  justify-content: space-between;
+  width:100%;
+
+  input {
+    width: 225px;
+  }
+}
+
+.dialog-block_form {
+  width: 300px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  margin-top: 5px;
+  background-color: #dadce3;
+  border-radius: 4px;
+}
+
+input:focus {
+  outline: none;
+}
